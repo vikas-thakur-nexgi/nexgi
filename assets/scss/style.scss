@@ -1,6 +1,59 @@
-@use "_variables" as *;
-@use "_font" as *;
+// @use "../../node_modules/bootstrap/scss/bootstrap";
+@import "./variables";
+@import "./font";
 
+@import "../../node_modules/bootstrap/scss/mixins/banner";
+@include bsBanner("");
+
+
+// scss-docs-start import-stack
+// Configuration
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+// Layout & components
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/button-group";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/accordion";
+@import "../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../node_modules/bootstrap/scss/pagination";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/progress";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/toasts";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/tooltip";
+@import "../../node_modules/bootstrap/scss/popover";
+@import "../../node_modules/bootstrap/scss/carousel";
+@import "../../node_modules/bootstrap/scss/spinners";
+@import "../../node_modules/bootstrap/scss/offcanvas";
+@import "../../node_modules/bootstrap/scss/placeholders";
+
+// Helpers
+@import "../../node_modules/bootstrap/scss/helpers";
+
+// Utilities
+@import "../../node_modules/bootstrap/scss/utilities/api";
+// scss-docs-end import-stack
 
 
 
@@ -133,6 +186,7 @@ body {
         grid-template-columns: repeat(4, 1fr);
         justify-content: center;
         align-items: center;
+        margin-top: 25px;
         gap: 20px;
 
     }
@@ -185,7 +239,187 @@ body {
 
 }
 
+// skills-cards
+.skills-cards {
+    &__card {
+        align-items: center;
+        text-align: center;
+    }
+
+    &__image {
+        // width: 100%;
+        height: auto;
+        object-fit: contain;
+        cursor: pointer;
+    }
+
+    img {
+        width: 120px;
+        height: 100px;
+    }
+
+    &__heading {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+
+    &__desc {
+        font-size: $font-size-md;
+        color: $font-color-secondary;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+        line-height: 1.2;
+        font-weight: 300;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+
+    }
+}
+
+// Benefits-cards
+.benefits {
+    background-image: url("/assets/img/nexgen-values-bg.webp");
+}
+
+
+.benefits-cards {
+
+    >.col-lg-3 {
+
+        &:nth-child(2),
+        &:nth-child(4) {
+
+            .benefits-cards__card {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    &__card {
+        text-align: center;
+        // padding: 0;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 3 / 3;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    &__heading {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        margin: 1rem 0;
+    }
+}
+
+// About-us
+.about-us {
+    &__small-title {
+        font-size: $font-size-md;
+        // font-weight: $font-weight-bold;
+        margin-bottom: 0.5rem;
+    }
+
+    &__heading {
+        font-size: $font-size-4xl;
+        font-weight: $font-weight-bold;
+        margin-bottom: 1rem;
+        text-transform: capitalize;
+        position: relative;
+        padding-bottom: 15px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: $btn-primary-bg;
+        }
+    }
+
+    &__desc {
+        font-size: $font-size-lg;
+        color: $font-color-secondary;
+        padding-top: 1rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        line-height: 1.2;
+        font-weight: 300;
+    }
+
+    &__play-btn {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            content: "";
+            font-family: "FontAwesome";
+            height: 55px;
+            width: 55px;
+            background-image: url(https://d3vkpydtgsc252.cloudfront.net/uploads/2021/05/play-button-1.svg);
+            transform: translate(-20%, -25%);
+            font-size: 4rem;
+            line-height: 1;
+            cursor: pointer;
+            color: #afafaf;
+
+        }
+
+        video {
+            margin-top: 30px;
+            min-width: 746px;
+            width: 100%;
+            height: auto;
+        }
+
+
+        &__video {
+            display: block;
+            width: 100%;
+            // min-width: 746px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+    }
+
+
+}
+
+
+
+
 // @media QUERY 
+
+
+@media (min-width: 992px) {
+
+    >.col-lg-3 {
+
+        &:nth-child(2),
+        &:nth-child(4) {
+
+            .benefits-cards__card {
+                margin-top: 40px;
+            }
+        }
+    }
+
+
+
+}
+
 
 @media (max-width: 1199px) {
 
@@ -212,10 +446,13 @@ body {
             grid-template-columns: repeat(4, 1fr);
         }
     }
+
+
 }
 
 
 @media (max-width: 991px) {
+
 
     .bg-section,
     .bg-section_service {
@@ -270,6 +507,14 @@ body {
             width: 250px;
         }
     }
+
+    video {
+        margin-top: 30px;
+        min-width: 100% !important;
+        width: 100%;
+        height: auto;
+    }
+
 }
 
 
@@ -356,6 +601,21 @@ body {
             line-height: 1.5;
         }
     }
+
+    .benefits-cards>.col-lg-3:nth-child(2) .benefits-cards__card {
+        margin-top: 0px;
+    }
+
+    .benefits-cards>.col-lg-3:nth-child(4) .benefits-cards__card {
+        margin-top: 0px;
+    }
+
+    video {
+        min-width: 100% !important;
+        width: 100%;
+        height: auto;
+    }
+
 }
 
 
